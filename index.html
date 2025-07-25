@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boxing Club Membership</title>
+  <link rel="stylesheet" href="./crudproject.css">
+</head>
+
+<body class="maingrid">
+  <h1 class="heading">Boxing Club Membership</h1>
+
+  <form id="form">
+    <label for="input">Name:</label>
+    <input type="text" placeholder="Enter your name" id="name" required>
+
+    <label for="select">Membership level:</label>
+    <select name="membership level" id="membership" required>
+      <option value="">Select your level</option>
+      <option value="basic">Basic</option>
+      <option value="silver">Silver</option>
+      <option value="gold">Gold</option>
+      <option value="platinum">Platinum</option>
+    </select>
+
+    <label for="input">Joining Date:</label>
+    <input type="date" id="date" required>
+    <button type="submit" id="button">ADD</button>
+  </form>
+  <div id="datadisplay"></div>
+
+  <script>
+    let formtag = document.getElementById("form");
+    let name = document.getElementById("name");
+    let membership = document.getElementById("membership");
+    let date = document.getElementById("date");
+    let datadisplay = document.getElementById("datadisplay");
+
+    formtag.addEventListener("submit", function adddata(e) {
+      e.preventDefault();
+
+      let newdiv = document.createElement("div");
+      datadisplay.appendChild(newdiv);
+
+
+      let namecreate = document.createElement("input");
+      namecreate.value = name.value;
+      namecreate.setAttribute("readonly", true);
+      newdiv.appendChild(namecreate);
+      newdiv.classList.add("mainflex");
+
+      let membershipcreate = document.createElement("select");
+      let selected = membership.value;
+
+      let levels = ["basic", "silver", "gold", "platinum"];
+      for (let i = 0; i < levels.length; i++) {
+        let option = document.createElement("option");
+        option.value = levels[i];
+        option.innerText = levels[i].charAt(0).toUpperCase() + levels[i].slice(1);
+
+        if (selected === levels[i]) {
+          option.selected = true;
+        }
+
+        membershipcreate.appendChild(option);
+      }
+
+      newdiv.appendChild(membershipcreate);
+
+
+      let datecreate = document.createElement("input");
+      datecreate.type = "date";
+      datecreate.value = date.value;
+      datecreate.setAttribute("readonly", true);
+      newdiv.appendChild(datecreate);
+
+      let editbutton = document.createElement("button");
+      editbutton.innerText = 'Edit';
+      newdiv.appendChild(editbutton);
+      editbutton.classList.add("editbutton")
+      editbutton.addEventListener("click", function () {
+        namecreate.removeAttribute("readonly");
+        datecreate.removeAttribute("readonly");
+        membershipcreate.disabled = false;
+      });
+
+
+      let savebutton = document.createElement("button");
+      savebutton.innerText = 'Save';
+      newdiv.appendChild(savebutton);
+      savebutton.classList.add("savebutton")
+      savebutton.addEventListener("click", function () {
+        namecreate.setAttribute("readonly", true);
+        datecreate.setAttribute("readonly", true);
+        membershipcreate.disabled = true;
+      });
+
+
+      let deletebutton = document.createElement("button");
+      deletebutton.innerText = "Delete";
+      newdiv.appendChild(deletebutton);
+      deletebutton.classList.add("deletebutton")
+      deletebutton.addEventListener("click", function () {
+        datadisplay.removeChild(newdiv);
+      });
+
+
+      formtag.reset();
+    });
+  </script>
+</body>
+
+</html>

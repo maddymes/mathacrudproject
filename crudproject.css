@@ -1,0 +1,48 @@
+.{
+    padding: 0%;
+    margin: 0%;
+}
+.maingrid {
+    height: 100vh;
+    width: 100vw;
+  background-image: url('./view-pair-boxing-gloves.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-image-width: 100px;
+}
+
+  /* background: linear-gradient(300deg, rgba(23, 22, 22, 100), rgb(212, 28, 28)); */
+/* } */
+.mainflex{
+    display: flex;
+    gap: 30px;
+}
+.heading{
+    font-family:'Times New Roman', Times, serif;
+    text-align: center;
+    color: whitesmoke;
+    background-color: black;
+    margin: 20px 550px;
+}
+.editbutton{ 
+    background-color: rgb(236, 173, 57);
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    border: 1px solid black;
+}
+.savebutton{
+    background-color:rgb(35, 128, 35);
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    border: 1px solid black;
+}
+.deletebutton{
+    background-color:rgb(233, 49, 49);
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    border: 1px solid black;
+}
