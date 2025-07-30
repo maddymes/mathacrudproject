@@ -1,0 +1,96 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+.maingrid {
+ background: linear-gradient(300deg, rgb(215, 109, 93), rgb(235, 231, 231));
+    background-size: cover;
+
+}
+.mainflex{
+    display: flex;
+    gap: 30px;
+}
+.logo{
+    text-align: center;
+ }
+.box-2{
+   font-family: 'Montserrat', sans-serif;
+        text-align: center;
+        margin-bottom: 40px;
+ }
+#form{
+    display: flex;
+    justify-content: center;
+}
+.editbutton{ 
+    background-color: rgb(236, 173, 57);
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    border: 1px solid black;
+}
+.savebutton{
+    background-color:rgb(35, 128, 35);
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    border: 1px solid black;
+}
+.deletebutton{
+    background-color:rgb(233, 49, 49);
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    border: 1px;
+}
+.label{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    margin-left: 20px;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.input{
+    background-color: rgb(229, 216, 216);
+    border-radius: 10px;
+    border: none;
+    padding: 1px;
+}
+.input::placeholder {
+  color: rgb(4, 4, 4);                   
+  opacity: 1;   
+  text-align: center; 
+}
+select{
+     background-color: rgb(229, 216, 216);
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    border: 1px;
+}
+#date{
+    text-align: center; 
+}
+#button {
+  background-color: black;   
+  color: white;              
+  border: none;              
+  border-radius: 5px;        
+  cursor: pointer;    
+  padding: 5px;  
+  margin-bottom: 2px;
+  font-weight: 1px;   
+ }
+ .mainbox{
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background: linear-gradient(300deg, rgb(216, 107, 90), rgb(231, 181, 181));
+    padding: 30px;
+    margin-top: 120px;
+ }
+ .gap{
+    margin-top: 10px;
+ }

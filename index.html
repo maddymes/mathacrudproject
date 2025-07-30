@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brickhouse Boxing Club Membership</title>
+  <link rel="stylesheet" href="./crudproject.css">
+</head>
+
+<body class="maingrid">
+  <div class="headerboxmain">
+    <div class="logo">
+      <img src="./Asset/boxing logo.png" width="200px" alt="">
+    </div>
+    <div class="box-2">
+      <h1>BRICKHOUSE BOXING MEMBERSHIP</h1>
+    </div>
+
+    <form id="form">
+      <label class="label" for="input">Name:</label>
+      <input type="text" placeholder="Enter your name" id="name" required class="input">
+
+      <label class="label for=" select">Membership level:</label>
+      <select name="membership level" id="membership" required>
+        <option value="level">Select your level</option>
+        <option value="basic">Basic</option>
+        <option value="silver">Silver</option>
+        <option value="gold">Gold</option>
+        <option value="platinum">Platinum</option>
+      </select>
+
+      <label class="label for=" input">Joining Date:</label>
+      <input type="date" id="date" required class="input">
+      <button class="label type=" submit" id="button">JOIN NOW</button>
+    
+
+  </div>
+
+  <div id="datadisplay"></div>
+
+  <script>
+    let formtag = document.getElementById("form");
+    let name = document.getElementById("name");
+    let membership = document.getElementById("membership");
+    let date = document.getElementById("date");
+    let datadisplay = document.getElementById("datadisplay");
+
+    formtag.addEventListener("submit", function adddata(e) {
+      e.preventDefault();
+
+      let newdiv = document.createElement("div");
+      datadisplay.appendChild(newdiv);
+
+
+      let namecreate = document.createElement("input");
+      namecreate.value = name.value;
+      namecreate.setAttribute("readonly", true);
+      newdiv.appendChild(namecreate);
+      newdiv.classList.add("mainflex");
+
+      let membershipcreate = document.createElement("select");
+      let selected = membership.value;
+
+      let levels = ["basic", "silver", "gold", "platinum"];
+      for (let i = 0; i < levels.length; i++) {
+        let option = document.createElement("option");
+        option.value = levels[i];
+        option.innerText = levels[i].charAt(0).toUpperCase() + levels[i].slice(1);
+
+        if (selected === levels[i]) {
+          option.selected = true;
+        }
+
+        membershipcreate.appendChild(option);
+      }
+
+      newdiv.appendChild(membershipcreate);
+
+
+      let datecreate = document.createElement("input");
+      datecreate.type = "date";
+      datecreate.value = date.value;
+      datecreate.setAttribute("readonly", true);
+      newdiv.appendChild(datecreate);
+
+      let editbutton = document.createElement("button");
+      editbutton.innerText = 'Edit';
+      newdiv.appendChild(editbutton);
+      editbutton.classList.add("editbutton")
+      editbutton.addEventListener("click", function () {
+        namecreate.removeAttribute("readonly");
+        datecreate.removeAttribute("readonly");
+        membershipcreate.disabled = false;
+      });
+
+
+      let savebutton = document.createElement("button");
+      savebutton.innerText = 'Save';
+      newdiv.appendChild(savebutton);
+      savebutton.classList.add("savebutton")
+      savebutton.addEventListener("click", function () {
+        namecreate.setAttribute("readonly", true);
+        datecreate.setAttribute("readonly", true);
+        membershipcreate.disabled = true;
+      });
+
+
+      let deletebutton = document.createElement("button");
+      deletebutton.innerText = "Delete";
+      newdiv.appendChild(deletebutton);
+      deletebutton.classList.add("deletebutton")
+      deletebutton.addEventListener("click", function () {
+        datadisplay.removeChild(newdiv);
+      });
+      formtag.reset();
+    });
+  </script>
+  </form>
+    <div class="mainbox">
+      <div>
+        <h3>About Boxing</h3>
+        <p class="gap">Membership</p>
+        <p>Mission</p>
+        <p>Contact us</p>
+      </div>
+      <div>
+        <h3>Meet the Team</h3>
+        <p class="gap">Elite high performnace</p>
+      </div>
+      <div>
+        <h3>TEAM BRICKHOUSE</h3>
+      </div>
+    </div>
+</body>
+</html>
